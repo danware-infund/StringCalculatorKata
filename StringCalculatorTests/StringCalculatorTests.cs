@@ -24,5 +24,12 @@ namespace StringCalculatorTests
             StringCalculator.Add("1,2").Should().Be(3);
             StringCalculator.Add("8,5").Should().Be(13);
         }
+
+        [Fact(DisplayName = "Given any amount of numbers, should return sum")]
+        public void GivenAnyAmountOfNumbers_ShouldReturnSum()
+        {
+            StringCalculator.Add("1,2,3,4").Should().Be(10);
+            StringCalculator.Add("8,5,986,12,89").Should().Be(1100);
+        }
     }
 }
