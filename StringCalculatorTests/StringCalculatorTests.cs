@@ -37,5 +37,11 @@ namespace StringCalculatorTests
         {
             StringCalculator.Add("1\n2,3").Should().Be(6);
         }
+
+        [Fact(DisplayName = "Given custom delimiter, should return sum")]
+        public void GivenCustomDelimiter_ShouldReturnSum()
+        {
+            StringCalculator.Add("\\;\n1;2").Should().Be(3);
+        }
     }
 }
