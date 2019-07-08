@@ -2,9 +2,14 @@
 {
     public class StringCalculator
     {
-        public static int Add(string value)
+        public static int Add(string numbers)
         {
-            return 0;
+            var total = 0;
+
+            if (!string.IsNullOrEmpty(numbers))
+                total = int.Parse(numbers);
+
+            return total;
         }
     }
 }
