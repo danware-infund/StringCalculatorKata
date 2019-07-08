@@ -17,5 +17,12 @@ namespace StringCalculatorTests
             StringCalculator.Add("1").Should().Be(1);
             StringCalculator.Add("7").Should().Be(7);
         }
+
+        [Fact(DisplayName = "Given two numbers, should return sum")]
+        public void GivenTwoNumbers_ShouldReturnSum()
+        {
+            StringCalculator.Add("1,2").Should().Be(3);
+            StringCalculator.Add("8,5").Should().Be(13);
+        }
     }
 }
