@@ -31,5 +31,11 @@ namespace StringCalculatorTests
             StringCalculator.Add("1,2,3,4").Should().Be(10);
             StringCalculator.Add("8,5,986,12,89").Should().Be(1100);
         }
+
+        [Fact(DisplayName = "Given new line & comma delimiters, should return sum")]
+        public void GivenNewLineAndCommaDelimiters_ShouldReturnSum()
+        {
+            StringCalculator.Add("1\n2,3").Should().Be(6);
+        }
     }
 }
