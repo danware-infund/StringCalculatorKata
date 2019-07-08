@@ -5,10 +5,10 @@ namespace StringCalculatorTests
 
     public class StringCalculatorTests
     {
-        [Fact]
-        public void StringCalculator_ClassExists()
+        [Fact(DisplayName = "Given empty string, should return zero")]
+        public void GivenEmptyString_ShouldReturnZero()
         {
-            new StringCalculator().Should().NotBeNull();
+            StringCalculator.Add("").Should().Be(0);
         }
     }
 }
