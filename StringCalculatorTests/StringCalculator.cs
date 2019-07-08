@@ -1,5 +1,7 @@
 ﻿namespace StringCalculatorTests
 {
+    using System.Text.RegularExpressions;
+
     public class StringCalculator
     {
         public static int Add(string numbers)
@@ -8,12 +10,10 @@
 
             if (!string.IsNullOrEmpty(numbers))
             {
-                if (numbers.IndexOf(',') > 0)
-                    foreach (string number in numbers.Split(','))
-                        total += int.Parse(number);
-                else total = int.Parse(numbers);
+                string[] numberArray = Regex.Split(numbers, "[,\n]");
+                foreach (string number in numberArray)
+                    total += int.Parse(number);
             }
-
             return total;
         }
     }
