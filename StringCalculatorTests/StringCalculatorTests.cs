@@ -1,5 +1,6 @@
 namespace StringCalculatorTests
 {
+    using System;
     using FluentAssertions;
     using Xunit;
 
@@ -42,6 +43,14 @@ namespace StringCalculatorTests
         public void GivenCustomDelimiter_ShouldReturnSum()
         {
             StringCalculator.Add("\\;\n1;2").Should().Be(3);
+        }
+
+        [Fact(DisplayName = "Given negative number, should throw exception")]
+        public void GivenNegativeNumber_ShouldThrowException()
+        {
+            Action act = () => StringCalculator.Add("1,2,-3");
+            act.Should().Throw<Exception>()
+              .WithMessage("Negatives not allowed");
         }
     }
 }

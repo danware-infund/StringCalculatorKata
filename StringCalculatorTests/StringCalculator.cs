@@ -1,5 +1,6 @@
 ﻿namespace StringCalculatorTests
 {
+    using System;
     using System.Text.RegularExpressions;
 
     public class StringCalculator
@@ -10,7 +11,8 @@
 
             if (!string.IsNullOrEmpty(numbers))
                 foreach (string number in SplitNumbers(numbers))
-                    total += int.Parse(number);
+                    if (int.Parse(number) < 0) throw new Exception("Negatives not allowed");
+                    else total += int.Parse(number);
 
             return total;
         }
